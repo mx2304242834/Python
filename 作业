@@ -1,0 +1,16 @@
+data = urllib.parse.urlencode({'wd':'q'})
+print(data)
+url = 'http://www.baidu.com/s?' + data
+response = urllib.request.urlopen(url)
+HTML = response.read().decode('utf8')
+print(HTML)
+
+import urllib.request
+proexy_handler = urllib.request.ProxyHandler{
+    'http':'http://115.171.85.32:9000',
+    'https':'http://113.120.35.50:9999'
+}
+proxy = urllib.request.P+roxyHandler(proxy_handler)
+opener = urllib.request.build_opener(proxy)
+response = opener.open('http://www.baidu.com')
+print(response.read())
